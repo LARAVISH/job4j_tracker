@@ -9,47 +9,31 @@ public class Profession {
     public String getName() {
         return name;
     }
-}
-
-class Engineer extends Profession {
-    public void planning() {
+    public void setName(String name){
+        if(name != null){
+            this.name = name;
+        }
     }
-}
+    public Profession(){
 
-class Builder extends Engineer {
-    String drawing;
-
-    public void buildHouse() {
     }
-}
-
-class Programmer extends Engineer {
-    String software;
-
-    public void developsSoftware(String software) {
+    public Profession(String name){
+       this(name,null,null,0);
     }
-}
-
-class Doctor extends Profession {
-    public Diagnosis heal(Pacient pacient) {
-        return new Diagnosis();
+    public Profession(String name,String surname){
+        this(name,surname,null,0);
     }
-}
-
-class Surgeon extends Doctor {
-    public Pacient operate(String scalpel) {
-        return new Pacient();
+    public Profession(String name,String surname,String education){
+    this(name,surname,education,0);
     }
-}
-
-class Dantist extends Doctor {
-    public Pacient treatsTeeth(int tooth) {
-        return new Pacient();
+    public Profession(String name,String surname,String education,int birthDay){
+        this.name = name;
+        this.surname = surname;
+        this.education = education;
+        this.birthDay = birthDay;
     }
+
 }
 
-class Diagnosis {
-}
 
-class Pacient {
-}
+
