@@ -27,9 +27,10 @@ public class Library {
         }
         System.out.println();
         for (Book el : libr) {
-            if (el.getName().equals("Clean code")) {
-                System.out.println(el.getName());
+            if (!("Clean code").equals(el.getName())) {
+                continue;
             }
+            System.out.println(el.getName());
         }
     }
 }
