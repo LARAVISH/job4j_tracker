@@ -8,10 +8,7 @@ public class Shop {
             if (prod == null) {
                 index = i;
                 break;
-            } else {
-                continue;
             }
-
         }
         return index;
     }
