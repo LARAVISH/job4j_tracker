@@ -3,49 +3,29 @@ package ru.job4j.io;
 import java.util.Scanner;
 
 public class Matches {
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int count = 11;
         int number;
+        boolean user = true;
         while (count > 0) {
-            System.out.println("Первый игрок берет спички");
+            System.out.println("Возьмите спички от 1 до 3");
             number = Integer.parseInt(input.next());
-            if (number >= 1 && number <= 3) {
-                count -= number;
-                System.out.println("На столе осталось спичек : " + count);
-                if (count == 0) {
-                    System.out.println("Первый игрок победил");
-                    break;
-                }
-            } else {
-                System.out.println("Вы взяли неправильное колличество спичек");
-                System.out.println("Возьмите верное количество спичек от 1 до 3");
-                number = Integer.parseInt(input.next());
-                if (number >= 1 && number <= 3) {
+            user = !user;
+            switch (number) {
+                case 1, 2, 3 -> {
                     count -= number;
-                    System.out.println("На столе осталось спичек : " + count);
+                    System.out.println("Спичек осталось на столе " + count);
                 }
-            }
-            System.out.println("Второй игрок берет спички");
-           number = Integer.parseInt(input.next());
-            if (number >= 1 && number <= 3) {
-                count -= number;
-                System.out.println("На столе осталось спичек : " + count);
-                if (count == 0) {
-                    System.out.println("Второй победил");
-                    break;
-                }
-            } else {
-                System.out.println("Вы взяли неправильное колличество спичек");
-                System.out.println("Возьмите верное количество спичек от 1 до 3");
-                number = Integer.parseInt(input.next());
-                if (number >= 1 && number <= 3) {
-                    count -= number;
-                    System.out.println("На столе осталось спичек : " + count);
-                }
+                default -> System.out.println("Вы взяли неверное количество спичек");
             }
         }
-        System.out.println("The End");
 
+        if (user) {
+            System.out.println("Первый игрок выйграл");
+        } else {
+            System.out.println("Второй игрок выйграл");
+        }
     }
 }
