@@ -30,7 +30,6 @@ public class StartUI {
                     int id = Integer.parseInt(scanner.nextLine());
                     System.out.println("=== Enter name ===");
                     String name1 = scanner.nextLine();
-                    tracker.replace(id, new Item(name1));
                     if (tracker.replace(id, new Item(name1))) {
                         System.out.println("===Success===");
                     } else {
@@ -43,7 +42,6 @@ public class StartUI {
                     System.out.println("=== Delete item===");
                     System.out.print("Enter id:");
                     int id1 = Integer.parseInt(scanner.nextLine());
-                    tracker.delete(id1);
                     if (tracker.delete(id1)) {
                         System.out.println("===Success===");
                     } else {
@@ -56,9 +54,9 @@ public class StartUI {
                     System.out.println("===Find item by Id===");
                     System.out.println("Enter id: ");
                     int id2 = Integer.parseInt(scanner.nextLine());
-                    tracker.findById(id2);
-                    if (tracker.findById(id2) != null) {
-                        System.out.println(id2);
+                    Item res = tracker.findById(id2);
+                    if (res != null) {
+                        System.out.println(res.getName() + " " + res.getId());
                     } else {
                         System.out.println("id not found");
                     }
@@ -66,7 +64,7 @@ public class StartUI {
                     System.out.println("===Find items by name===");
                     System.out.println("Enter name: ");
                     String name2 = scanner.nextLine();
-                    Item[] item = tracker.findByName(new Item(name2));
+                    Item[] item = tracker.findByName(name2);
                     if (item.length > 0) {
                         for (Item i : item) {
                             System.out.println(i);
