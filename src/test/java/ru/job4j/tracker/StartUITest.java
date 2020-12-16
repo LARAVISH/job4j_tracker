@@ -18,4 +18,15 @@ public class StartUITest extends TestCase {
         Item expected = new Item("Update");
         assertThat(created.getName(), is(expected.getName()));
     }
+
+    @Test
+    public void testEditItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item();
+        tracker.add(item);
+        String[] answer = {String.valueOf(item.getId()), "replaced item"};
+        StartUI.editItem(new StubInput(answer), tracker);
+        Item replaced = tracker.findById(item.getId());
+        assertThat(replaced.getName(), is("replaced item"));
+    }
 }
