@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 
-public class StartUITest extends TestCase {
+public class StartUITest {
 
     @Test
     public void testCreateItem() {
@@ -28,5 +28,17 @@ public class StartUITest extends TestCase {
         StartUI.editItem(new StubInput(answer), tracker);
         Item replaced = tracker.findById(item.getId());
         assertThat(replaced.getName(), is("replaced item"));
+    }
+    @Test
+    public void testDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item();
+        tracker.add(item);
+        String[] answer = {String.valueOf(item.getId()), "delete id"};
+        StartUI.deleteItem(new StubInput(answer), tracker);
+        Item delete = tracker.findById(item.getId());
+        Item expected = new Item(null);
+        assertThat(delete, is(expected.getName()));
+
     }
 }
