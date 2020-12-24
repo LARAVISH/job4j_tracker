@@ -52,6 +52,7 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
 
+    @SuppressWarnings("checkstyle:OperatorWrap")
     @Test
     public void whenFindAll() {
         OutPut out = new StubOutPut();
@@ -61,8 +62,11 @@ public class StartUITest {
         Input in = new StubInput(new String[]{"0", id, "1"});
         UserAction[] actions = {new ShowAction(out), new ExitAction(out)};
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. === Show all Items ====" + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator() + "Menu." + System.lineSeparator() + "0. === Show all Items ====" + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()));
-
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. === Show all Items ===="
+                + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()
+                + tracker.findById(item.getId()) + System.lineSeparator()
+                + "Menu." + System.lineSeparator() + "0. === Show all Items ===="
+                + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()));
     }
 
     @Test
@@ -74,7 +78,11 @@ public class StartUITest {
         Input in = new StubInput(new String[]{"0", id, "1"});
         UserAction[] action = {new FindItemBeIdAction(out), new ExitAction(out)};
         new StartUI(out).init(in, tracker, action);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. === Find item by Id ===" + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator() + "Menu." + System.lineSeparator() + "0. === Find item by Id ===" + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. === Find item by Id ==="
+                + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()
+                + tracker.findById(item.getId()) + System.lineSeparator() + "Menu."
+                + System.lineSeparator() + "0. === Find item by Id ===" + System.lineSeparator()
+                + "1. === Exit ===" + System.lineSeparator()));
     }
 
     @SuppressWarnings("checkstyle:EmptyLineSeparator")
@@ -87,6 +95,10 @@ public class StartUITest {
         Input input = new StubInput(new String[]{"0", name, "1"});
         UserAction[] action = {new FindItemsByNameAction(out), new ExitAction(out)};
         new StartUI(out).init(input, tracker, action);
-        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. === Find items by name ===" + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator() + tracker.findById(item.getId()) + System.lineSeparator() + "Menu." + System.lineSeparator() + "0. === Find items by name ===" + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()));
+        assertThat(out.toString(), is("Menu." + System.lineSeparator() + "0. === Find items by name ==="
+                + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()
+                + tracker.findById(item.getId()) + System.lineSeparator()
+                + "Menu." + System.lineSeparator() + "0. === Find items by name ==="
+                + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()));
     }
 }
