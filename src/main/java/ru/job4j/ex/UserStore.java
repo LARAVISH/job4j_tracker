@@ -20,21 +20,17 @@ public class UserStore {
         if (user.getUsername().length() < 3 || !user.isValid()) {
             throw new UserInvalidException("Not a valid user");
         }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) throws UserNotFoundException {
+       User[] users = {new User("Petr Arsentev", true)};
+        User user = findUser(users, "Petr Arsentev");
         try {
-            User[] users = {
-                    new User("Petr Arsentev", true)
-            };
-            User user = findUser(users, "Petr Arsentev");
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
 
-        } catch (UserInvalidException e) {
-            e.printStackTrace();
         } catch (UserNotFoundException e) {
             e.printStackTrace();
         }
