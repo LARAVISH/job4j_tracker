@@ -31,7 +31,7 @@ public class StartUI {
     @SuppressWarnings("checkstyle:EmptyLineSeparator")
     public static void main(String[] args) {
         OutPut out = new ConsoleOutPut();
-        Input input = new ValidateInput();
+        Input input = new ValidateInput(out, new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(out), new ShowAction(out), new ReplaceAction(out),
