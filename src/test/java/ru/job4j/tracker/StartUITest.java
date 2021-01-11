@@ -52,7 +52,7 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
 
-    @SuppressWarnings("checkstyle:OperatorWrap")
+    @SuppressWarnings({"checkstyle:OperatorWrap", "checkstyle:LineLength"})
     @Test
     public void whenFindAll() {
         OutPut out = new StubOutPut();
@@ -100,5 +100,25 @@ public class StartUITest {
                 + tracker.findById(item.getId()) + System.lineSeparator()
                 + "Menu." + System.lineSeparator() + "0. === Find items by name ==="
                 + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator()));
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        OutPut out = new StubOutPut();
+        Input in = new StubInput(
+                new String[]{"10", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. " + actions[0].name() + System.lineSeparator()
+                        + "Wrong input, you can select: 0 .. 0" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. " + actions[0].name() + System.lineSeparator()
+        ));
     }
 }
