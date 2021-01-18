@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 public final class Tracker {
-    private static volatile Tracker instance = null;
+    private static  Tracker instance = null;
     private final Item[] items = new Item[100];
     private static int ids = 1;
     private static int size = 0;
@@ -11,13 +11,10 @@ public final class Tracker {
     private Tracker(){
 
     }
-    public static Tracker getInstance(){
-        if(instance == null){
-            synchronized (Tracker.class){
-                if(instance == null){
-                    instance = new Tracker();
-                }
-            }
+
+    public static Tracker getInstance() {
+        if (instance == null) {
+            instance = new Tracker();
         }
         return instance;
     }
