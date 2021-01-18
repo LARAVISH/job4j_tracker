@@ -2,10 +2,25 @@ package ru.job4j.tracker;
 
 import java.util.Arrays;
 
-public class Tracker {
+public final class Tracker {
+    private static volatile Tracker instance = null;
     private final Item[] items = new Item[100];
-    private int ids = 1;
-    private int size = 0;
+    private static int ids = 1;
+    private static int size = 0;
+
+    private Tracker(){
+
+    }
+    public static Tracker getInstance(){
+        if(instance == null){
+            synchronized (Tracker.class){
+                if(instance == null){
+                    instance = new Tracker();
+                }
+            }
+        }
+        return instance;
+    }
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -57,27 +72,25 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        boolean res = index != -1;
-        if (res) {
+
+        if (index != -1) {
             item.setId(id);
             items[index] = item;
-            return res;
+            return true;
         }
-        return res;
+        return false;
     }
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        boolean res = index != -1;
-        if (res) {
+        if (index != -1) {
             int start = index + 1;
-            int distPos = index;
             int length = size - index;
-            System.arraycopy(items, start, items, distPos, length);
+            System.arraycopy(items, start, items, index, length);
             items[size - 1] = null;
             size--;
-            return res;
+            return true;
         }
-        return res;
+        return false;
     }
 }

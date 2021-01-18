@@ -28,11 +28,10 @@ public class StartUI {
         }
     }
 
-    @SuppressWarnings("checkstyle:EmptyLineSeparator")
     public static void main(String[] args) {
         OutPut out = new ConsoleOutPut();
         Input input = new ValidateInput(out, new ConsoleInput());
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         UserAction[] actions = {
                 new CreateAction(out), new ShowAction(out), new ReplaceAction(out),
                 new DeleteAction(out), new FindItemBeIdAction(out),
