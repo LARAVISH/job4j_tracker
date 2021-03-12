@@ -23,7 +23,7 @@ public final class Tracker {
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
-        return items.get(size++);
+        return item;
     }
 
     public Item findById(int id) {

@@ -15,7 +15,7 @@ public class StartUITest {
         OutPut out = new StubOutPut();
         List<UserAction> actions = List.of(new CreateAction(out), new ExitAction(out));
         new StartUI(out).init(input, tracker, actions);
-        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
+        assertThat(tracker.findAll().get(1).getName(), is("Item name"));
     }
 
     @Test
