@@ -11,16 +11,16 @@ public class StartUITest {
     public void testCreateItem() {
 
         Input input = new StubInput(new String[]{"0", "Item name", "1"});
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         OutPut out = new StubOutPut();
         List<UserAction> actions = List.of(new CreateAction(out), new ExitAction(out));
         new StartUI(out).init(input, tracker, actions);
-        assertThat(tracker.findAll().get(1).getName(), is("Item name"));
+        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
     public void whenReplaceItem() {
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         OutPut out = new StubOutPut();
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
@@ -35,7 +35,7 @@ public class StartUITest {
 
     @Test
     public void whenDeleteItem() {
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         OutPut out = new StubOutPut();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
@@ -50,7 +50,7 @@ public class StartUITest {
     @Test
     public void whenFindAll() {
         OutPut out = new StubOutPut();
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("All items show"));
         String id = String.valueOf(item.getId());
         Input in = new StubInput(new String[]{"0", id, "1"});
@@ -66,7 +66,7 @@ public class StartUITest {
     @Test
     public void whenDFindByIDItem() {
         OutPut out = new StubOutPut();
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item added"));
         String id = String.valueOf(item.getId());
         Input in = new StubInput(new String[]{"0", id, "1"});
@@ -82,7 +82,7 @@ public class StartUITest {
     @Test
     public void whenFindByName() {
         OutPut out = new StubOutPut();
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item added"));
         String name = item.getName();
         Input input = new StubInput(new String[]{"0", name, "1"});
@@ -101,7 +101,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"10", "0"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         List<UserAction> actions = List.of(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
