@@ -16,9 +16,9 @@ public class Merge {
     }
 
     public static class User {
-        private int id;
-        private String name;
-        private String surname;
+        private final int id;
+        private final String name;
+        private final String surname;
 
         public User(int id, String name, String surname) {
             this.id = id;

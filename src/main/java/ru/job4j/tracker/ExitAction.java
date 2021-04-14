@@ -1,6 +1,11 @@
 package ru.job4j.tracker;
 
 public class ExitAction implements UserAction {
+
+    public ExitAction() {
+
+    }
+
     @Override
     public String name() {
         return "=== Exit ===";

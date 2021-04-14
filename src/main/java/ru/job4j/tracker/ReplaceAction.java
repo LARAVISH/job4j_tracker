@@ -1,6 +1,10 @@
 package ru.job4j.tracker;
 
 public class ReplaceAction implements UserAction {
+
+    public ReplaceAction(OutPut out) {
+    }
+
     @Override
     public String name() {
         return "=== Edit item ===";

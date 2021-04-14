@@ -1,16 +1,13 @@
 package ru.job4j.collection;
 
 public class Task {
-    private String number;
+    private final String number;
 
     public String getNumber() {
         return number;
     }
 
-    private String description;
-
-    public Task(String number, String description) {
+    public Task(String number) {
         this.number = number;
-        this.description = description;
     }
 }

@@ -1,5 +1,6 @@
 package ru.job4j.collection.comparator;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 

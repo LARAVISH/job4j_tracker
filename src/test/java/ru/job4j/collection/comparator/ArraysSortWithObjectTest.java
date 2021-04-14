@@ -12,5 +12,4 @@ public class ArraysSortWithObjectTest {
         String[] expect = {"c", "b", "a"};
         Assert.assertArrayEquals(expect, result);
     }
-
 }

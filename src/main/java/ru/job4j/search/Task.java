@@ -1,8 +1,8 @@
 package ru.job4j.search;
 
 public class Task {
-    private String task;
-    private int priority;
+    private final String task;
+    private final int priority;
 
     public Task(String task, int priority) {
         this.task = task;

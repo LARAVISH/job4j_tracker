@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class GetOrDefault {
 
-    private Map<Integer,List<String>> store = new HashMap<>();
+    private final Map<Integer,List<String>> store = new HashMap<>();
 
     public void addValue(int index, List<String> list) {
             store.putIfAbsent(index,list);

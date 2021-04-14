@@ -6,8 +6,8 @@ import java.util.Objects;
 public class ThenComparingMethod {
     public static class User implements Comparable<User> {
 
-        private String name;
-        private int age;
+        private final String name;
+        private final int age;
 
         public User(String name, int age) {
             this.name = name;
@@ -16,10 +16,6 @@ public class ThenComparingMethod {
 
         public String getName() {
             return name;
-        }
-
-        public int getAge() {
-            return age;
         }
 
         @Override
@@ -50,11 +46,11 @@ public class ThenComparingMethod {
     }
 
     public static Comparator<User> ascByName() {
-        return ((o1, o2) -> o1.compareTo(o2));
+        return (User::compareTo);
         }
 
     public static Comparator<User> descByAge() {
-        return ((o1, o2) -> o2.compareTo(o1));
+        return (Comparator.reverseOrder());
     }
 
 }

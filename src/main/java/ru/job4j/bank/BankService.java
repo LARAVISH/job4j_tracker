@@ -7,7 +7,7 @@ import java.util.Map;
 
 
     public class BankService {
-        private Map<User, List<Account>> users = new HashMap<>();
+        private final Map<User, List<Account>> users = new HashMap<>();
 
         public void addUser(User user) {
             users.putIfAbsent(user, new ArrayList<>());
@@ -42,19 +42,18 @@ import java.util.Map;
             }
             return null;
         }
-    public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String destRequisite, double amount) {
-        boolean rsl = false;
-       Account srcAccount = findByRequisite(srcPassport,srcRequisite);
-       Account destAccount = findByRequisite(destPassport,destRequisite);
 
-       if(srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount){
-           srcAccount.setBalance(srcAccount.getBalance()- amount);
-           destAccount.setBalance(destAccount.getBalance() + amount);
-           rsl = true;
 
-        }
+        public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
+            boolean rsl = false;
+            Account srcAccount = findByRequisite(srcPassport, srcRequisite);
+            Account destAccount = findByRequisite(destPassport, destRequisite);
 
+            if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
+                srcAccount.setBalance(srcAccount.getBalance() - amount);
+                destAccount.setBalance(destAccount.getBalance() + amount);
+                rsl = true;
+            }
         return rsl;
-    }
+ }
 }

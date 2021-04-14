@@ -15,5 +15,4 @@ public class NullFirstMethodTest {
         list.sort(NullFirstMethod.nullFirst());
         assertEquals(Arrays.asList(null, "1", "2", "3"), list);
     }
-
 }

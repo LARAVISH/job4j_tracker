@@ -2,14 +2,11 @@ package ru.job4j.oop;
 
 public class Shop {
     public static void main(String[] args) {
-        Product product = of("Oil" ,100);
+        Product product = of();
         System.out.println(product.label());
     }
 
-    private static Product of(String name, int price) {
-        if ("Oil".equals(name)) {
-            return new Product(name, price);
-        }
-        return new Product(name,price);
+    private static Product of() {
+        return new Product("Oil", 100);
     }
 }

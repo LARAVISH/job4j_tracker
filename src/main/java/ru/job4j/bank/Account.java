@@ -3,7 +3,7 @@ package ru.job4j.bank;
 import java.util.Objects;
 
 public class Account {
-    private String requisite;
+    private final String requisite;
     private double balance;
 
 
@@ -20,10 +20,6 @@ public class Account {
         return balance;
     }
 
-    public void setRequisite(String requisite) {
-        this.requisite = requisite;
-    }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
@@ -34,7 +30,7 @@ public class Account {
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
 
-        return Objects.equals(requisite,account.requisite);
+        return Objects.equals(requisite, account.requisite);
     }
 
     @Override

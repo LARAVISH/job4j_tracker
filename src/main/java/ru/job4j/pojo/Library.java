@@ -13,8 +13,7 @@ public class Library {
         libr[2] = book3;
         libr[3] = book4;
 
-        for (int i = 0; i < libr.length; i++) {
-            Book lib = libr[i];
+        for (Book lib : libr) {
             System.out.println("Book title : " + lib.getName() + ", " + "number of pages : " + lib.getPageCount());
         }
         System.out.println();

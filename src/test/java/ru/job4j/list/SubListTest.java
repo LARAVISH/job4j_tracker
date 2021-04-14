@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class SubListTest {
 
-    private List<String> list = new ArrayList<>();
+    private final List<String> list = new ArrayList<>();
 
     @Before
     public void setUp() {

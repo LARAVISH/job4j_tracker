@@ -7,7 +7,6 @@ public final class Tracker {
 
     private final List<Item> items = new ArrayList<>();
     private static int ids = 1;
-    private static int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -61,7 +60,6 @@ public final class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             items.remove(index);
-            size--;
             res = true;
         }
         return res;

@@ -1,10 +1,9 @@
 package ru.job4j.oop;
 
+import junit.framework.TestCase;
+
 import static org.hamcrest.Matchers.closeTo;
 import static org.junit.Assert.assertThat;
-
-import junit.framework.TestCase;
-import org.junit.Test;
 
 public class TriangleTest extends TestCase {
 

@@ -7,7 +7,7 @@ public final class Airbus extends Aircraft {
 
     public Airbus(String name) {
         this.name = name;
-        if (name == "A320") {
+        if (name.equals("A320")) {
             COUNT_ENGINE = 4;
         }else{
             COUNT_ENGINE = 2;

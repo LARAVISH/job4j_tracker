@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Citizen {
 
-    private String passport;
-    private String username;
+    private final String passport;
+     String username;
 
 
     public Citizen(String passport, String username) {
@@ -15,10 +15,6 @@ public class Citizen {
 
     public String getPassport() {
         return passport;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     @Override

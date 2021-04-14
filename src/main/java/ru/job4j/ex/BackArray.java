@@ -3,7 +3,7 @@ package ru.job4j.ex;
 import java.util.Arrays;
 
 public class BackArray {
-    @SuppressWarnings("checkstyle:WhitespaceAround")
+
     public static void main(String[] args) {
         String[] names = {"Peter", "Ivan", "Nik", "Vasya"};
         int middle = names.length / 2;

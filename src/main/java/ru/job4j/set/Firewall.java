@@ -13,6 +13,7 @@ public class Firewall {
         for (String el : words) {
             if (check.contains(el)) {
                 res = "Выберите другую статью...";
+                break;
             }
         }
         return res;

@@ -2,11 +2,9 @@ package ru.job4j.pojo;
 
 public class Product {
     private String name;
-    private  int count;
 
-    public Product(String name, int count) {
+    public Product(String name) {
         this.name = name;
-        this.count = count;
     }
 
     public String getName() {
@@ -17,11 +15,4 @@ public class Product {
         this.name = name;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
 }
