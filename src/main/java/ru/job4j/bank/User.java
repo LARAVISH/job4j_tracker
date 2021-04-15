@@ -2,6 +2,13 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает пользователя
+ * содержит данные паспорта и имя пользователя
+ *
+ * @author Lara Vishniakova
+ * @version 1
+ */
 public class User {
     private String passport;
     private String username;

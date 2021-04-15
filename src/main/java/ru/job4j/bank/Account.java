@@ -2,7 +2,13 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает счета пользователя : реквизиты счета и денежный баланс
+ * @author Lara Vishniakova
+ * @version 1
+ */
 public class Account {
+
     private final String requisite;
     private double balance;
 
