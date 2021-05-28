@@ -8,8 +8,8 @@ public class Article {
     public static boolean generateBy(String origin, String line) {
         Set<String> hStrings = new HashSet<>();
         boolean res = true;
-        String[] originalText = origin.split("");
-        String[] newText = line.split("");
+        String[] originalText = origin.replaceAll("\\p{P}", "").split(" ");
+        String[] newText = line.replaceAll("\\p{P}", "").split(" ");
         Collections.addAll(hStrings, originalText);
         for (String el : newText) {
             if (!hStrings.contains(el)) {
