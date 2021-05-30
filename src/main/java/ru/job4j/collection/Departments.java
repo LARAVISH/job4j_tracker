@@ -18,10 +18,8 @@ public class Departments {
                 tmp.add(start);
             }
         }
-        List<String> res = new ArrayList<>(tmp);
-        sortAsc(res);
-        sortDesk(res);
-        return res;
+
+        return new ArrayList<>(tmp);
     }
 
 
