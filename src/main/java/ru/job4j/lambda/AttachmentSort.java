@@ -1,8 +1,10 @@
 package ru.job4j.lambda;
 
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+
 
 public class AttachmentSort {
     public static void main(String[] args) {
@@ -11,12 +13,12 @@ public class AttachmentSort {
                 new Attachment("image 2", 34),
                 new Attachment("image 3", 13)
         );
-        Comparator<Attachment> attachmentComparator = new Comparator<>() {
-            @Override
-            public int compare(Attachment o1, Attachment o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        };
+        Comparator<Attachment> attachmentComparator = Comparator.comparing(Attachment::getName);
         attachments.sort(attachmentComparator);
+        Comparator<Attachment> comparator = (left, right) -> right.getSize() - left.getSize();
+        attachments.sort(comparator);
+
     }
 }
+
+
