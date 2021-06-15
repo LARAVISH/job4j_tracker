@@ -49,7 +49,10 @@ public class Address {
         if (this == o) return true;
         if (!(o instanceof Address)) return false;
         Address address = (Address) o;
-        return getHome() == address.getHome() && getApartment() == address.getApartment() && getCity().equals(address.getCity()) && getStreet().equals(address.getStreet());
+        return getHome() == address.getHome()
+                && getApartment() == address.getApartment()
+                && getCity().equals(address.getCity())
+                && getStreet().equals(address.getStreet());
     }
 
     @Override
