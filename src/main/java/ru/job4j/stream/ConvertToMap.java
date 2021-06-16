@@ -6,7 +6,10 @@ import java.util.stream.Collectors;
 
 public class ConvertToMap {
     public Map<String, Student> convertToMap(List<Student> studentList) {
-        return studentList.stream().distinct()
-                .collect(Collectors.toMap(Student::getSurname, e -> e));
+        return studentList.stream()
+                .collect(Collectors.toMap(
+                        Student::getSurname, e -> e
+                        , (s, e) -> s.equals(e) ? s : e)
+                );
     }
 }
