@@ -9,7 +9,7 @@ public class ConvertToMap {
         return studentList.stream()
                 .collect(Collectors.toMap(
                         Student::getSurname, e -> e
-                        , (s, e) -> s.equals(e) ? s : e)
+                        , (s, e) -> s)
                 );
     }
 }
