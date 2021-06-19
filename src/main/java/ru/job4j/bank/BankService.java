@@ -68,12 +68,10 @@ public class BankService {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
             List<Account> accounts = users.get(user.get());
-            if (accounts != null) {
                 rsl = accounts.stream()
                         .filter(a -> requisite
                                 .equals(a.getRequisite()))
                         .findFirst();
-            }
         }
         return rsl;
     }
